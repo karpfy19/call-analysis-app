@@ -6,8 +6,7 @@
         "Luis: Hello!",
         "Technician: Hey Luis, got you all done. The reason that took so long is I just kind of also built all your equipment options when I was out there too.",
         "Luis: Okay, sure.",
-        "Technician: I'd love to wrap up with you here.",
-        "Luis: Of course, of course."
+        "Technician: I'd love to wrap up with you here."
       ],
       "analysis": "The technician did not properly greet the customer and introduce himself and the company. The technician only greeted the customer at the end of the service call, after the repair had taken place. The greeting of the call when the technician first arrived was not present in the conversation. The technician also does not introduce himself or the company in any detail."
     },
@@ -15,11 +14,9 @@
       "stage": "Problem Diagnosis",
       "textSnippets": [
         "Technician: Yeah, AI's a big thing, man. So let's go right to just the differences here. I just wanted to show you. So remember before, how we had that before, that below freezing temperature?",
-        "Luis: Oh yeah.",
         "Technician: At 41. It's good to see.",
         "Luis: And now it's better.",
-        "Technician: And now we have that 20-degree difference as well.",
-        "Luis: Oh, okay."
+        "Technician: And now we have that 20-degree difference as well."
       ],
       "analysis": "The technician observed and reported that the 'below freezing' temperature on the refrigerator was 41 degrees. This implied that the refrigerator was not working and needed to be fixed. Either the technician and customer had discussed this problem beforehand, or the customer had presumably reported that there was some problem with the refrigerator, and the technician then investigated the refrigerator and identified this problem. The technician also mentioned that 'it's an old unit,' i.e. that the refrigerator is old. Therefore the technician implied that a more comprehensive set of replacements/upgrades would be necessary. Overall this is how the technician identified the customer's interview. It is unclear if they discussed this issue before."
     },
@@ -27,13 +24,10 @@
       "stage": "Solution Explanation",
       "textSnippets": [
         "Technician: Yeah, AI's a big thing, man. So let's go right to just the differences here. I just wanted to show you. So remember before, how we had that before, that below freezing temperature?",
-        "Luis: Oh yeah.",
         "Technician: At 41. It's good to see.",
         "Luis: And now it's better.",
         "Technician: And now we have that 20-degree difference as well.",
-        "Luis: Oh, okay.",
-        "Technician: So, just did a really fancy charge there for you.",
-        "Luis: Okay."
+        "Technician: So, just did a really fancy charge there for you."
       ],
       "analysis": "The technician did not really clearly explain the solution or service performed. As mentioned the technician mentioned that the 'below freezing' temperature on the refrigerator had been lowered by 20 degrees, from 41 degrees to 21 degrees, implying that the issue with the refrigerator had been fixed. But the technician did not explain what his exact solution or fix to this issue was, and what exact service on the refrigerator he performed in order to resolve this issue."
     },
@@ -43,7 +37,6 @@
         "Technician: It's a really— I like the idea, it's just kind of a lot. They want every house to have a 200-amp panel. They want every house to have a backup generator. They want every house to have solar. And they want every house to have a heat pump. And so heat pumps are the next option. Heat pumps are actually just got introduced some more rebates. So even though those are the best possible system to install, weirdly enough, those actually are getting quite affordable at the moment. I'm used to them being actually our most expensive option, but rebates have been introduced that have made it a lot more reasonable.",
         "Technician: For tech, let's see. I think we just take care of this one for you. So, oh, you know what? This one does require a HERS test to be done. So for this area, I would love to include one of our promotions for you, which is where we just include a duct seal. And that would be something I can definitely do. So if that passes a HERS test, I think you're all good.",
         "Technician: And with this, the benefit of moving it up to the attic though is you do get a full closet. In general, it is a pretty— in regards to airflow that enters the home, it's a pretty nice spot. It's just we do have to do some modifications, so just to explain an attic install. That intake would no longer be used.",
-        "Luis: That's right.",
         "Technician: We would add one probably close to the center of the house.",
         "Technician: And what I can even do as an extra way to make that noise even better is if we swap the grill. So the grill right now has louvers, right? So when airflow is pulled in and it does this, that naturally creates noise. We can install an egg carton version that has just squares instead, and it's much, much better for airflow. And when that happens, it makes it a lot quieter too. I did do a test one time on no change other than the grill, and it did decrease noise by 20% when I did that. So 20% quieter. It would still get— on the noise— it would be much less noisy than this, but—"
       ],
@@ -53,7 +46,6 @@
       "stage": "Maintenance Plan Offer",
       "textSnippets": [
         "Technician: That's basically what this comes down to. Now, a really cool thing: 10-year manufacturer warranty, 10-year compressor warranties. If you're on this maintenance program with us, we actually completely match the manufacturer warranties.",
-        "Luis: Got it.",
         "Technician: It's essentially 10 years parts and 10-year manufacturer warranty. And then moving on, we'll just get to the first heat pump. Really very similar line items. I'm not going to go through every single one this time. I wanted to pause at this one though. The technology we're talking about with this heat pump is called an inverter. Have you ever heard of an inverter before?"
       ],
       "analysis": "The technician does offer a 10-year manufacturer and 10-year compressor warranty that the technician describes as a 'maintenance program.' I guess this is a long-term service agreement as well because if any parts break or deteriorate over time, the technician's company will return to fix or replace or 'service' those parts over an extended time frame."
@@ -76,7 +68,6 @@
       "stage": "Call Type Identification",
       "textSnippets": [
         "Technician: And got you in good shape.",
-        "Luis: Okay.",
         "Technician: So. Okay, all I can say, definitely band-aid.",
         "Luis: Sure, yeah, yeah, yeah.",
         "Technician: It is something.",
@@ -87,33 +78,24 @@
       ],
       "analysis": "This call was both a repair call and an 'inspection call' to identify the equipment options that would potentially benefit the customer. The technician both repaired a faulty appliance and also identified different options for various sets upgrades/replacements that the client could purchase."
     },
-        {
-      "stage": "Sales Insights 1",
+    {
+      "stage": "Sales Insights",
       "textSnippets": [
         "Technician: There you go, yeah. So, the 2 equipment options, or there's a total of 4 that I built. There's either we replace like for like, which will naturally be more efficient even though it's just going to be the updated version of what you have. It's going to be a new furnace, new coil, new condenser, higher SEER rating, better efficiency, but still like the same type of equipment.",
-        "Luis: Mm-hmm.",
         "Technician: The next step beyond that is maintaining gas heating, electric cooling, but upgrading efficiency. And the interesting thing about that is that actually ends up being the most expensive one of the 4 that I've built. Are you familiar with natural gas phase-outs?",
-        "Luis: No, I don't know what that is."
-      ],
-      "analysis": "Overall the technician was pretty assertive, to say the least, if not aggressive, in introducing additional service and upsell options. He jumped into the equipment builds without the customer asking about them when he said 'I did just want to show you some different equipment options.' The client did ask various clarifying questions below as the technician discussed these options, but did not come off as deeply enthusiastic."
-    },
-    {
-      "stage": "Sales Insights 2",
-      "textSnippets": [
+        "Luis: No, I don't know what that is.",
         "Technician: On my end, it would be so much easier if I didn't have to charge for the repair today. And if we actually just basically considered it as a complimentary thing for you. So if we did feel comfortable with signing, what that would just look like on your end would just be a $1,000 down payment. The other thing is we can see what options you qualify for in regards to financing.",
-        "Luis: Yeah.",
         "Technician: And if that's the case, if we have financing, then I don't even need a down payment today. We would just do just the financing side of it. And we do come with a— every contractor that's reputable comes with this guarantee here. So as you're talking to your wife, if anything weird comes up, we even have this notice right here. So we always have a reputable 3-day right to cancel.",
         "Luis: No, we won't do that today.",
         "Technician: Okay, sure.",
         "Luis: You send me the evaluation.",
         "Technician: Absolutely, yeah.",
         "Luis: I'll talk to her.",
-        "Technician: Sure.",
         "Luis: And then we'll make a decision.",
         "Technician: Absolutely. And then within 15 days, I will completely credit that back towards it.",
         "Luis: Perfect."
       ],
-      "analysis": "The technician offered to void charging the client for the repair in exchange for the client putting down a deposit or agreeing to a financing option for one of the equipment sets the technician built. However the client refused implying that he was not completed committed to additional services and wanted to discuss it with his wife."
+      "analysis": "The technician offered to void charging the client for the repair in exchange for the client putting down a deposit or agreeing to a financing option for one of the equipment sets the technician built. However the client refused implying that he was not completed committed to additional services and wanted to discuss it with his wife. Overall the technician was pretty assertive, to say the least, if not aggressive, in introducing additional service and upsell options. He jumped into the equipment builds without the customer asking about them when he said 'I did just want to show you some different equipment options.' The client did ask various clarifying questions below as the technician discussed these options, but did not come off as deeply enthusiastic."
     }
   ]
 }

@@ -4,24 +4,134 @@
     <meta charset="UTF-8">
     <title>Call Analysis</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .container { display: flex; gap: 20px; }
+        .transcript { flex: 1; max-height: 80vh; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; }
+        .analysis { flex: 1; max-height: 80vh; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; background: #f9f9f9; }
+
+        /* Transcript highlight colors by stage */
+        .highlight-stage-0 { background-color: #ffff99; } 
+        .highlight-stage-1 { background-color: #99ff99; } 
+        .highlight-stage-2 { background-color: #99ccff; } 
+        .highlight-stage-3 { background-color: #ffcc99; } 
+        .highlight-stage-4 { background-color: #ff99cc; } 
+        .highlight-stage-5 { background-color: #ccffcc; } 
+        .highlight-stage-6 { background-color: #ffcccc; } 
+        .highlight-stage-7 { background-color: #ccccff; } 
+        .highlight-stage-8 { background-color: #ffccff; } 
+
+        /* Active legend item */
+        .legend-active { border: 2px solid #000; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <h1>Call Transcript</h1>
-    <ul>
-        <li th:each="line : ${transcriptLines}" th:text="${line}"></li>
-    </ul>
 
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        // Pass JSON safely as a string, then parse in JS
-        var analysisJson = /*[[${analysisJson}]]*/ '{}';
-        try {
-            var analysisData = JSON.parse(analysisJson);
-            console.log(analysisData); // You can use this to highlight transcript lines by stage
-        } catch(e) {
-            console.error("Failed to parse analysis JSON:", e);
+<h1>Call Analysis</h1>
+
+<!-- Legend -->
+<div id="legend" style="margin-bottom: 10px;">
+    <h3>Stage Legend:</h3>
+    <div id="legend-items" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+</div>
+
+<div class="container">
+    <!-- Transcript column -->
+    <div class="transcript" id="transcript">
+        <div th:each="line, iterStat : ${transcriptLines}" 
+             th:text="${line}" 
+             th:id="'line-' + ${iterStat.index}"></div>
+    </div>
+
+    <!-- Analysis column -->
+    <div class="analysis" id="analysis"></div>
+</div>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+var analysisJson = /*[[${analysisJson}]]*/ '{}';
+
+try {
+    var analysisData = JSON.parse(analysisJson);
+
+    var analysisDiv = document.getElementById("analysis");
+    var transcriptDiv = document.getElementById("transcript");
+    var legendDiv = document.getElementById("legend-items");
+
+    var stageHeaders = [];
+    var legendItems = [];
+
+    analysisData.stageHighlights.forEach(function(stage, stageIndex) {
+        var highlightClass = "highlight-stage-" + stageIndex;
+
+        // Legend
+        var legendItem = document.createElement("div");
+        legendItem.textContent = stage.stage;
+        legendItem.classList.add(highlightClass);
+        legendItem.style.padding = "2px 6px";
+        legendItem.style.borderRadius = "3px";
+        legendItem.style.color = "#000";
+        legendDiv.appendChild(legendItem);
+        legendItems.push(legendItem);
+
+        // Analysis
+        var stageHeader = document.createElement("h2");
+        stageHeader.textContent = stage.stage;
+        analysisDiv.appendChild(stageHeader);
+
+        var stagePara = document.createElement("p");
+        stagePara.textContent = stage.analysis;
+        analysisDiv.appendChild(stagePara);
+
+        stageHeaders.push({header: stageHeader, snippets: stage.textSnippets});
+
+        // Highlight transcript lines
+        stage.textSnippets.forEach(function(snippet) {
+            for (var i = 0; i < transcriptDiv.children.length; i++) {
+                var lineDiv = transcriptDiv.children[i];
+                if (lineDiv.textContent.includes(snippet)) {
+                    lineDiv.classList.add(highlightClass);
+                    lineDiv.setAttribute("data-stage-index", stageIndex);
+                }
+            }
+        });
+    });
+
+    // Linked scrolling + active legend
+    transcriptDiv.addEventListener("scroll", function() {
+        var firstVisibleLine = null;
+        for (var i = 0; i < transcriptDiv.children.length; i++) {
+            var lineDiv = transcriptDiv.children[i];
+            var rect = lineDiv.getBoundingClientRect();
+            var parentRect = transcriptDiv.getBoundingClientRect();
+            if (rect.top >= parentRect.top) {
+                firstVisibleLine = lineDiv;
+                break;
+            }
         }
-        /*]]>*/
-    </script>
+        if (firstVisibleLine) {
+            var stageIndex = firstVisibleLine.getAttribute("data-stage-index");
+            if (stageIndex !== null) {
+                // Scroll analysis header into view
+                stageHeaders[stageIndex].header.scrollIntoView({behavior: "smooth", block: "start"});
+
+                // Highlight active legend item
+                legendItems.forEach(function(item, idx) {
+                    if (idx == stageIndex) {
+                        item.classList.add("legend-active");
+                    } else {
+                        item.classList.remove("legend-active");
+                    }
+                });
+            }
+        }
+    });
+
+} catch(e) {
+    console.error("Failed to parse analysis JSON:", e);
+}
+/*]]>*/
+</script>
+
 </body>
 </html>
