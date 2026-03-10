@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Call Analysis</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
-<div class="container">
-    <!-- Transcript Column -->
-    <div class="transcript">
-        <div th:each="line : ${transcriptWithHighlight}">
-            <span th:text="${line.text}" th:classappend="${line.highlight} ? 'highlight' : ''"></span>
-        </div>
-    </div>
+    <h1>Call Transcript</h1>
+    <ul>
+        <li th:each="line : ${transcriptLines}" th:text="${line}"></li>
+    </ul>
 
-    <!-- Analysis Column -->
-    <div class="analysis">
-        <div th:each="highlight : ${stageHighlights}">
-            <h3 th:text="${highlight.stage}"></h3>
-            <p th:text="${highlight.analysis}"></p>
-        </div>
-    </div>
-</div>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Pass JSON safely as a string, then parse in JS
+        var analysisJson = /*[[${analysisJson}]]*/ '{}';
+        try {
+            var analysisData = JSON.parse(analysisJson);
+            console.log(analysisData); // You can use this to highlight transcript lines by stage
+        } catch(e) {
+            console.error("Failed to parse analysis JSON:", e);
+        }
+        /*]]>*/
+    </script>
 </body>
 </html>
