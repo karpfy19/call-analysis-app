@@ -1,0 +1,20 @@
+{
+  "stageHighlights": [
+    {
+      "stage": "Introduction",
+      "textSnippets": [
+        "Technician: Hello, this is Mike from AC Services.",
+        "Customer: Hi, thanks for coming."
+      ],
+      "analysis": "Technician introduces himself clearly and professionally."
+    },
+    {
+      "stage": "Diagnosis",
+      "textSnippets": [
+        "Customer: The AC stopped cooling yesterday.",
+        "Technician: When did you notice the issue?"
+      ],
+      "analysis": "Technician asks appropriate clarifying questions."
+    }
+  ]
+}
