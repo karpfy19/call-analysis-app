@@ -1,10 +1,10 @@
-# Use Java 17
-FROM eclipse-temurin:17-jdk-alpine
+# Use Maven + Java 17 (Maven is included)
+FROM maven:3.9.13-eclipse-temurin-17-alpine
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the entire project into the container
+# Copy all project files
 COPY . .
 
 # Build the Spring Boot app, skipping tests
