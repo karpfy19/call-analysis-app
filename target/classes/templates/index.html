@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Call Analysis</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<div class="container">
+    <!-- Transcript Column -->
+    <div class="transcript">
+        <div th:each="line : ${transcriptWithHighlight}">
+            <span th:text="${line.text}" th:classappend="${line.highlight} ? 'highlight' : ''"></span>
+        </div>
+    </div>
+
+    <!-- Analysis Column -->
+    <div class="analysis">
+        <div th:each="highlight : ${stageHighlights}">
+            <h3 th:text="${highlight.stage}"></h3>
+            <p th:text="${highlight.analysis}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
